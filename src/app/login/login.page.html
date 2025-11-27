@@ -1,0 +1,40 @@
+<ion-content class="ion-padding" [fullscreen]="true">
+  <div class="login-container">
+    <div class="header-section">
+      <img src="../../assets/images/hoopi_logo.png" alt="Hoopi Logo" class="hoopi-logo">
+      <div class="car-illustration"></div>
+    </div>
+
+    <h1 class="welcome-message">OLÁ CONDUTOR!</h1>
+
+    <form (ngSubmit)="login()">
+      <div class="input-group">
+        <ion-label position="stacked" class="input-label">Email</ion-label>
+        <ion-input type="email" [(ngModel)]="email" name="email" class="custom-input"></ion-input>
+      </div>
+
+      <div class="input-group">
+        <ion-label position="stacked" class="input-label">Senha</ion-label>
+        <ion-input type="password" [(ngModel)]="password" name="password" class="custom-input"></ion-input>
+      </div>
+
+      <div class="options-row">
+        <ion-item lines="none" class="remember-me-item">
+          <ion-checkbox slot="start" color="primary"></ion-checkbox>
+          <ion-label>Lembre-me a senha</ion-label>
+        </ion-item>
+        <ion-button fill="clear" color="dark" class="forgot-password-button" (click)="forgotPassword()">
+          Esqueci a senha
+        </ion-button>
+      </div>
+
+      @if (errorMessage) {
+        <p class="error-message ion-text-center">{{ errorMessage }}</p>
+      }
+
+      <ion-button expand="block" type="submit" class="login-button">
+        Entre
+      </ion-button>
+    </form>
+  </div>
+</ion-content>
