@@ -1,0 +1,7 @@
+{
+  "name": "hoopi_io",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
