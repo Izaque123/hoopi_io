@@ -49,3 +49,8 @@ npm install
 ionic serve
 # O aplicativo estará disponível em http://localhost:8100/
 
+# Criar uma nova página (ex: Dashboard)
+ionic generate page dashboard --standalone
+
+# Criar um novo componente (ex: Componente de Autenticação)
+ionic generate component components/auth-form --standalone
