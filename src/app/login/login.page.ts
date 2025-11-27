@@ -1,7 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-// Adiciona IonCheckbox
 import { IonContent, IonButton, IonInput, IonItem, IonLabel, IonCard, IonCardContent, IonCardHeader, IonCardTitle, IonCheckbox } from '@ionic/angular/standalone';
 import { Router } from '@angular/router';
 
@@ -14,7 +13,7 @@ import { Router } from '@angular/router';
     IonContent, IonButton,
     IonInput, IonItem, IonLabel, IonCard, IonCardContent,
     IonCardHeader, IonCardTitle, CommonModule, FormsModule,
-    IonCheckbox // Adiciona IonCheckbox
+    IonCheckbox
   ]
 })
 export class LoginPage {
@@ -27,11 +26,6 @@ export class LoginPage {
 
   async login() {
     this.errorMessage = '';
-
-    // Lógica de chamada à API
-    // ...
-
-    // Simulação de login bem-sucedido:
     if (this.email === 'user@example.com' && this.password === 'password') {
       this.router.navigateByUrl('/folder/inbox', { replaceUrl: true });
     } else {
@@ -41,12 +35,10 @@ export class LoginPage {
 
   register() {
     console.log('Navegar para a tela de registro');
-    // this.router.navigateByUrl('/register');
   }
 
   forgotPassword() {
     console.log('Navegar para a tela de recuperação de senha');
-    // Implementar navegação para tela de recuperação de senha
-    // this.router.navigateByUrl('/forgot-password');
+
   }
 }

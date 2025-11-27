@@ -3,11 +3,11 @@ import { Routes } from '@angular/router';
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: 'login', // <-- ALTERADO para redirecionar para a tela de login
+    redirectTo: 'login',
     pathMatch: 'full',
   },
   {
-    path: 'login', // <-- NOVA ROTA: Adiciona o caminho para a tela de login
+    path: 'login', 
     loadComponent: () =>
       import('./login/login.page').then((m) => m.LoginPage),
   },
