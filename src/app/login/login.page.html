@@ -9,13 +9,16 @@
 
     <form (ngSubmit)="login()">
       <div class="input-group">
-        <ion-label position="stacked" class="input-label">Email</ion-label>
-        <ion-input type="email" [(ngModel)]="email" name="email" class="custom-input"></ion-input>
+        <ion-input type="email" [(ngModel)]="email" name="email" placeholder="E-mail" class="custom-input">
+          <ion-icon slot="start" name="mail-sharp" aria-hidden="true"></ion-icon>
+        </ion-input>
       </div>
 
       <div class="input-group">
-        <ion-label position="stacked" class="input-label">Senha</ion-label>
-        <ion-input type="password" [(ngModel)]="password" name="password" class="custom-input"></ion-input>
+        <ion-input type="password" [(ngModel)]="password" name="password" placeholder="Sanha" class="custom-input">
+          <ion-icon slot="start" name="lock-closed" aria-hidden="true"></ion-icon>
+          <ion-input-password-toggle slot="end" color="dark"></ion-input-password-toggle>
+        </ion-input>
       </div>
 
       <div class="options-row">
