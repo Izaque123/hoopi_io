@@ -1,6 +1,6 @@
 :root {
   --hoopi-green-light: #91DE85; 
-  --hoopi-green-dark: #378b31;
+  --hoopi-green-dark: #378b31; 
   --hoopi-text-dark: #333333;
   --hoopi-input-bg: #e0f2d9; 
 }
@@ -17,6 +17,7 @@ ion-content {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
+  font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 .login-container {
@@ -26,7 +27,7 @@ ion-content {
   flex-direction: column;
   align-items: center;
   padding: 20px;
-  margin-top: 50px;
+  margin-top: 90px;
 }
 
 .header-section {
@@ -63,13 +64,12 @@ ion-content {
 }
 
 .input-group {
-  width: 110%;
+  width: 100%;
   margin-bottom: 25px;
-  margin-left: -18px;
 }
 
 .input-label {
-  color: var(--hoopi-text-dark);
+  color: #000000;
   font-weight: bold;
   margin-bottom: 5px;
   margin-bottom: 20px;
@@ -78,7 +78,7 @@ ion-content {
 }
 
 .custom-input {
-  --background: #e0f2d9;
+  --background: #ffffff;
   --padding-start: 15px;
   --padding-end: 15px;
   --padding-top: 15px;
@@ -87,13 +87,15 @@ ion-content {
   --border-color: transparent;
   color: #333333;
   font-size: 1rem;
+  height: 10px;
+  margin-top: 10px;
 }
 
 .options-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 110%;
+  width: 100%;
   margin-bottom: 40px;
   flex-wrap: wrap; 
 }
@@ -102,13 +104,14 @@ ion-content {
   --background: transparent;
   --inner-padding-end: 0;
   --padding-start: 0;
-  color: var(--hoopi-text-dark);
+  color: #378b31;
   font-size: 0.95em;
+  width: 50%;
   
   ion-checkbox {
     --checkbox-background: #ffffff; 
-    --checkbox-background-checked: var(--hoopi-green-dark); 
-    --border-color: var(--hoopi-green-dark);
+    --checkbox-background-checked: #378b31; 
+    --border-color: #378b31;
     --border-radius: 50%;
     width: 22px;
     height: 22px;
@@ -116,27 +119,22 @@ ion-content {
   }
   ion-label {
     margin: 0;
-    width: 90px;
+    width: 100px;
+    font-size: small
   }
 }
 
 .forgot-password-button {
-  --color: var(--hoopi-text-dark);
-  font-size: 0.95em;
+  --color: #378b31;
+  font-size: 0.8em;
   text-transform: none;
   height: auto;
   padding-inline: 0;
 }
 
 .login-button {
-  --background: #378b31;
+  --background: #2bab22;
   --color: #ffffff;
-  --border-radius: 30px;
-  height: 55px;
-  font-size: 1.2rem;
-  font-weight: bold;
-  width: 100%;
-  margin-top: 0;
 }
 
 .error-message {
