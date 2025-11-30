@@ -1,5 +1,5 @@
 <ion-content class="ion-padding" [fullscreen]="true">
-  <div class="login-container"> <!-- Mantém o mesmo container e CSS para consistência -->
+  <div class="register-container">
     <div class="header-section">
       <img src="../../assets/images/hoopi_logo.png" alt="Hoopi Logo" class="hoopi-logo">
     </div>
@@ -8,13 +8,11 @@
 
     <form (ngSubmit)="register()" class="form">
 
-      <!-- Nome Completo -->
       <div class="input-group">
         <ion-input type="text" [(ngModel)]="marca" name="marca" placeholder="Marca do Veículo" class="custom-input">
         </ion-input>
       </div>
 
-      <!-- CPF -->
       <div class="input-group">
         <ion-input type="text" [(ngModel)]="modelo" name="modelo" placeholder="Modelo do Veículo" class="custom-input">
         </ion-input>
@@ -25,20 +23,16 @@
         </ion-input>
       </div>
 
-      <!-- Email -->
       <div class="input-group">
         <ion-input type="text" [(ngModel)]="placa" name="placa" placeholder="Placa" class="custom-input">
         </ion-input>
       </div>
 
-
-      <!-- Telefone -->
       <div class="input-group">
         <ion-input type="text" [(ngModel)]="cor" name="cor" placeholder="Cor do Veículo" class="custom-input">
         </ion-input>
       </div>
 
-      <!-- Senha -->
       <div class="input-group">
         <ion-input type="number" [(ngModel)]="renavam" name="renavam" placeholder="RENAVAM" class="custom-input">
         </ion-input>
@@ -50,7 +44,6 @@
       <div *ngIf="errorMessage" class="error-message ion-text-center">{{ errorMessage }}</div>
       <div *ngIf="successMessage" class="success-message ion-text-center">{{ successMessage }}</div>
 
-      <!-- Botão de cadastro -->
        <div class="div-buttons">
         <ion-button expand="block"  class="back-button" (click)="goBack()">
           <ion-icon slot="start" name="arrow-back-sharp" aria-hidden="true"></ion-icon> Voltar
@@ -59,9 +52,6 @@
           Cadastrar
         </ion-button>
       </div>
-
-      <!-- Link para login -->
-      
 
     </form>
   </div>
