@@ -5,7 +5,6 @@ import { FormsModule } from '@angular/forms';
 import { IonIcon, IonContent, IonButton, IonInput, IonItem, IonLabel, IonCard, IonCardContent, IonCardHeader, IonCardTitle, IonCheckbox, IonHeader, IonTitle, IonToolbar } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
 import { helpCircleOutline } from 'ionicons/icons';
-import { InitialHeaderComponent } from '../components/initial-header/initial-header.component';
 import { Router } from '@angular/router';
 
 @Component({
@@ -13,7 +12,7 @@ import { Router } from '@angular/router';
   templateUrl: './roleSelection.page.html',
   styleUrls: ['./roleSelection.page.scss'],
   standalone: true,
-  imports: [IonIcon, IonContent, IonHeader, IonTitle, IonToolbar,CommonModule, FormsModule, IonButton, IonInput, IonItem, IonLabel, IonCard, IonCardContent, IonCardHeader, IonCardTitle, IonCheckbox, InitialHeaderComponent]
+  imports: [IonIcon, IonContent, IonHeader, IonTitle, IonToolbar,CommonModule, FormsModule, IonButton, IonInput, IonItem, IonLabel, IonCard, IonCardContent, IonCardHeader, IonCardTitle, IonCheckbox]
 })
 export class RoleSelectionPage implements OnInit {
   private router = inject(Router);
