@@ -57,5 +57,8 @@ export class LoginPage implements OnInit { // Implementa OnInit
   forgotPassword() {
     console.log('Navegar para a tela de recuperação de senha');
   }
+  choseRole() {
+    this.router.navigate(['/role-selection']);
+  }
 
 }
