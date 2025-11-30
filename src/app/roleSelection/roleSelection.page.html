@@ -3,10 +3,10 @@
   <div class="roleSelection-container">
     <h1 class="chose-message">Como você deseja se cadastrar?</h1>
     <div class="button-container">
-      <ion-button expand="block" type="submit" class="chose-button">
+      <ion-button expand="block" type="submit" class="chose-button" (click)="goToDriverRegister()">
         Condutor
       </ion-button>
-      <ion-button class="chose-button">
+      <ion-button class="chose-button" expand="block" type="submit" (click)="goToPassengerRegister()">
         Passageiro  
       </ion-button>
     </div>

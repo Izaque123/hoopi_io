@@ -32,5 +32,10 @@ export class RoleSelectionPage implements OnInit {
   goToLogin() {
     this.router.navigate(['/login']);
   }
-
-}
+  goToPassengerRegister() {
+    this.router.navigate(['/register-passenger']);
+  }
+  goToDriverRegister() {
+    this.router.navigate(['/register-driver']); 
+  }
+} 
