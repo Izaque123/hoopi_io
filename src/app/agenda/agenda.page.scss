@@ -1,0 +1,667 @@
+ion-header {
+    width: 100%;
+    height: 100px;
+  ion-toolbar {
+    --background: linear-gradient(135deg, #378b31 0%, #2d6e28 100%);
+    --color: white;
+    
+    ion-title {
+      font-weight: 700;
+      font-size: 1.1rem;
+      letter-spacing: -0.3px;
+    }
+    
+    ion-button {
+      --color: white;
+      --padding-start: 6px;
+      --padding-end: 6px;
+      margin: 0 2px;
+    }
+  }
+  
+  ion-toolbar:last-of-type {
+    --background: #91DE85;
+    width: 100%;
+    height: 100px;
+    padding-bottom: 0;
+    ion-segment {
+      --background: transparent;
+      padding: 0 12px;
+      
+      ion-segment-button {
+        --color: rgba(255, 255, 255, 0.8);
+        --color-checked: white;
+        --indicator-color: #378b31;
+        --indicator-height: 3px;
+        min-height: 44px;
+        font-weight: 600;
+        
+        ion-label {
+          font-size: 0.85rem;
+          padding: 0 4px;
+        }
+      }
+    }
+  }
+}
+
+.header-itens{
+    margin-top: 50px;
+    display: flex;
+}
+
+.context {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: white;
+  width: 100%;
+  margin-bottom: 0;
+  margin-top: 120px;
+}
+
+.header-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px 0 5px 0;
+  background: white;
+}
+
+.hoopi-logo {
+  width: 180px;
+  height: auto;
+}
+
+.week-navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  background: white;
+  border-top: 1px solid #f0f0f0;
+  border-bottom: 1px solid #f0f0f0;
+  
+  .current-period {
+    font-weight: 600;
+    color: #378b31;
+    font-size: 0.9rem;
+    text-align: center;
+    flex: 1;
+    padding: 0 8px;
+  }
+  
+  ion-button {
+    --color: #378b31;
+    --background: rgba(55, 139, 49, 0.1);
+    --border-radius: 8px;
+    --padding-start: 8px;
+    --padding-end: 8px;
+    height: 36px;
+    width: 36px;
+    flex-shrink: 0;
+    
+    &[disabled] {
+      --color: #ccc;
+      --background: rgba(204, 204, 204, 0.1);
+    }
+    
+    ion-icon {
+      font-size: 1.2em;
+    }
+  }
+}
+
+.date-week-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 16px 8px;
+  background: white;
+  border-bottom: 1px solid #f8f8f8;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .date-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 6px;
+    min-width: 60px;
+    border-radius: 16px;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+    cursor: pointer;
+    margin: 0 3px;
+    border: 2px solid transparent;
+    background: #fafafa;
+    
+    &:first-child {
+      margin-left: 2px;
+    }
+    
+    &:last-child {
+      margin-right: 2px;
+    }
+    
+    &.active {
+      background:  #91DE85;
+      border-color: #378b31;
+      transform: scale(1.05);
+      
+      .month, .date-number, .day-name {
+        color: white;
+        font-weight: 700;
+      }
+    }
+    
+    .month {
+      font-size: 0.7em;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: #666;
+      text-transform: uppercase;
+    }
+    
+    .date-number {
+      font-size: 1.5em;
+      font-weight: 800;
+      margin-bottom: 6px;
+      color: #333;
+      line-height: 1;
+    }
+    
+    .day-name {
+      font-size: 0.75em;
+      color: #666;
+      font-weight: 600;
+    }
+  }
+}
+
+.date-filter-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 16px;
+  background: white;
+  border-bottom: 1px solid #f0f0f0;
+  
+  .current-date {
+    font-weight: 600;
+    color: #333;
+    font-size: 0.95rem;
+    flex: 1;
+  }
+  
+  .date-button {
+    --color: #378b31;
+    --background: rgba(55, 139, 49, 0.1);
+    --border-radius: 8px;
+    --padding-start: 12px;
+    --padding-end: 12px;
+    font-weight: 500;
+    font-size: 0.8rem;
+    height: 36px;
+    flex-shrink: 0;
+    
+    ion-icon {
+      font-size: 1em;
+      margin-right: 4px;
+    }
+  }
+}
+
+/* Container da lista com scroll */
+.appointment-list-container {
+  padding: 12px 16px 24px;
+  background: #f8fdf7;
+  min-height: calc(100vh - 480px);
+  max-height: calc(100vh - 380px);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  
+  .trip-card {
+    margin: 0 0 12px 0;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    border: 1px solid #e8e8e8;
+    background: white;
+
+    ion-card-header {
+      padding: 16px;
+      padding-bottom: 12px;
+    }
+    
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 12px;
+
+      .trip-info {
+        flex: 1;
+        min-width: 0;
+        
+        .route-title {
+          font-size: 1.1rem;
+          font-weight: 700;
+          color: #333;
+          margin-bottom: 8px;
+          line-height: 1.2;
+          word-wrap: break-word;
+        }
+
+        .trip-meta {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          flex-wrap: wrap;
+          
+          .time {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #378b31;
+            background: rgba(55, 139, 49, 0.1);
+            padding: 4px 8px;
+            border-radius: 6px;
+            
+            ion-icon {
+              font-size: 1em;
+            }
+          }
+          
+          .passengers {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 0.9rem;
+            color: #666;
+          }
+          
+          .price {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #333;
+          }
+        }
+      }
+    }
+    
+    .status-badge {
+      padding: 4px 8px;
+      border-radius: 6px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      white-space: nowrap;
+      flex-shrink: 0;
+      margin-left: 8px;
+      
+      &.status-confirmada {
+        background: #e8f5e9;
+        color: #378b31;
+      }
+      &.status-pendente {
+        background: #fff3e0;
+        color: #f57c00;
+      }
+      &.status-em-andamento {
+        background: #e3f2fd;
+        color: #1976d2;
+      }
+      &.status-cancelada {
+        background: #ffebee;
+        color: #d32f2f;
+      }
+    }
+    
+    .trip-details {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+      .route-point {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        
+        .point-icon {
+          width: 20px;
+          height: 20px;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-shrink: 0;
+          margin-top: 2px;
+          
+          &.origin {
+            background: #378b31;
+          }
+          
+          &.destination {
+            background: #91DE85;
+          }
+          
+          ion-icon {
+            color: white;
+            font-size: 0.9em;
+          }
+        }
+        
+        .location-text {
+          flex: 1;
+          font-size: 0.95rem;
+          color: #333;
+          line-height: 1.3;
+          word-wrap: break-word;
+        }
+      }
+    }
+
+    .trip-info-section {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      padding: 14px 16px;
+      border-top: 1px solid #f0f0f0;
+      background: #fafafa;
+
+      .trip-details-info {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        gap: 8px;
+        flex-wrap: wrap;
+        
+        .info-item {
+          display: flex;
+          align-items: center;
+          gap: 6px;
+          font-size: 0.8rem;
+          color: #666;
+          background: white;
+          padding: 6px 10px;
+          border-radius: 8px;
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+          flex: 1;
+          min-width: 80px;
+          justify-content: center;
+          
+          ion-icon {
+            font-size: 1em;
+            color: #378b31;
+            flex-shrink: 0;
+          }
+          
+          span {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
+        }
+      }
+
+      .action-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        width: 100%;
+        
+        ion-button {
+          height: 40px;
+          font-size: 0.85rem;
+          font-weight: 600;
+          --border-radius: 8px;
+          flex: 1;
+          max-width: 120px;
+          
+          &[fill="clear"] {
+            --color: #666;
+            --padding-start: 8px;
+            --padding-end: 8px;
+            flex: 0 0 auto;
+            max-width: 44px;
+          }
+          
+          &[fill="solid"] {
+            --padding-start: 12px;
+            --padding-end: 12px;
+            
+            &[color="success"] {
+              --background: #378b31;
+            }
+            
+            &[color="primary"] {
+              --background: #42a5f5;
+            }
+            
+            &[color="secondary"] {
+              --background: #ffa726;
+            }
+            
+            &[color="medium"] {
+              --background: #78909c;
+            }
+            
+            ion-icon {
+              font-size: 1.1em;
+              margin-right: 4px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.empty-state {
+  text-align: center;
+  padding: 60px 20px;
+  
+  ion-icon {
+    font-size: 4em;
+    color: #91DE85;
+    margin-bottom: 20px;
+    opacity: 0.7;
+  }
+  
+  h3 {
+    color: #333;
+    font-weight: 600;
+    margin-bottom: 8px;
+    font-size: 1.2rem;
+  }
+  
+  p {
+    color: #666;
+    margin: 0;
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+}
+
+// Otimizações para telas muito pequenas
+@media (max-width: 360px) {
+  .context {
+    top: -1px;
+  }
+  
+  .week-navigation {
+    padding: 10px 12px;
+    
+    .current-period {
+      font-size: 0.85rem;
+    }
+    
+    ion-button {
+      height: 32px;
+      width: 32px;
+    }
+  }
+  
+  .date-week-container {
+    padding: 10px 12px 6px;
+    
+    .date-item {
+      min-width: 55px;
+      padding: 8px 4px;
+      margin: 0 2px;
+      
+      .date-number {
+        font-size: 1.4em;
+      }
+      
+      .month {
+        font-size: 0.65em;
+      }
+      
+      .day-name {
+        font-size: 0.7em;
+      }
+    }
+  }
+  
+  .date-filter-container {
+    padding: 12px;
+    
+    .current-date {
+      font-size: 0.9rem;
+    }
+    
+    .date-button {
+      --padding-start: 10px;
+      --padding-end: 10px;
+      font-size: 0.75rem;
+    }
+  }
+  
+  .appointment-list-container {
+    padding: 10px 12px 20px;
+    min-height: calc(100vh - 420px);
+    max-height: calc(100vh - 320px);
+    
+    .trip-card {
+      .header-content {
+        .trip-meta {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 6px;
+          
+          .time, .passengers, .price {
+            font-size: 0.85rem;
+          }
+        }
+      }
+      
+      .trip-info-section {
+        .trip-details-info {
+          .info-item {
+            min-width: 70px;
+            font-size: 0.75rem;
+            padding: 5px 8px;
+          }
+        }
+        
+        .action-buttons {
+          ion-button {
+            height: 36px;
+            font-size: 0.8rem;
+            
+            &[fill="solid"] {
+              --padding-start: 10px;
+              --padding-end: 10px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// Melhorias para tablets
+@media (min-width: 768px) {
+  .context {
+    top: 0;
+  }
+  
+  .appointment-list-container {
+    .trip-card {
+      .trip-info-section {
+        flex-direction: row;
+        align-items: center;
+        
+        .trip-details-info {
+          justify-content: flex-start;
+          flex: 1;
+          
+          .info-item {
+            flex: none;
+            min-width: auto;
+          }
+        }
+        
+        .action-buttons {
+          justify-content: flex-end;
+          width: auto;
+        }
+      }
+    }
+  }
+}
+
+// Suporte para modo paisagem
+@media (max-height: 500px) and (orientation: landscape) {
+  .context {
+    top: 0;
+  }
+  
+  .header-section {
+    padding: 8px 0 3px 0;
+  }
+  
+  .hoopi-logo {
+    width: 140px;
+  }
+  
+  .date-week-container {
+    padding: 8px 16px 6px;
+    
+    .date-item {
+      padding: 6px 4px;
+      min-width: 50px;
+    }
+  }
+  
+  .appointment-list-container {
+    padding: 8px 16px 16px;
+    min-height: calc(100vh - 350px);
+    max-height: calc(100vh - 250px);
+    
+    .trip-card {
+      margin-bottom: 8px;
+      
+      ion-card-header {
+        padding: 12px;
+      }
+      
+      .trip-info-section {
+        padding: 10px 12px;
+      }
+    }
+  }
+}
+
+// Ajuste para garantir que o conteúdo não fique escondido atrás do header fixo
+ion-content {
+  --padding-top: 0;
+  --padding-bottom: 0;
+}
