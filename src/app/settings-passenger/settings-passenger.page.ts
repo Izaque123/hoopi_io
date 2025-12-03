@@ -42,9 +42,7 @@ export class SettingsPassengerPage implements OnInit {
   // Informações do usuário
   user = {
     email: '',
-    phone: '',
-    state: '',
-    city: ''
+    phone: ''
   };
 
   errorMessage = '';
@@ -66,9 +64,7 @@ export class SettingsPassengerPage implements OnInit {
     // Em uma aplicação real, isso viria de uma API
     this.user = {
       email: 'passageiro@email.com',
-      phone: '(11) 98765-4321',
-      state: 'São Paulo',
-      city: 'São Paulo'
+      phone: '(11) 98765-4321'
     };
   }
 
@@ -83,7 +79,7 @@ export class SettingsPassengerPage implements OnInit {
     this.successMessage = '';
 
     // Validações básicas
-    if (!this.user.email || !this.user.phone || !this.user.state || !this.user.city) {
+    if (!this.user.email || !this.user.phone) {
       this.errorMessage = 'Preencha todos os campos.';
       return;
     }

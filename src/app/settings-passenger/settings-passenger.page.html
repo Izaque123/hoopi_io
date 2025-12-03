@@ -53,28 +53,7 @@
         </ion-input>
       </div>
 
-      <div class="input-group">
-        <ion-label>Estado</ion-label>
-        <ion-input 
-          type="text" 
-          [(ngModel)]="user.state" 
-          name="state"
-          class="custom-input"
-          placeholder="Nome do Estado">
-        </ion-input>
-      </div>
-
-      <div class="input-group">
-        <ion-label>Cidade</ion-label>
-        <ion-input 
-          type="text" 
-          [(ngModel)]="user.city" 
-          name="city"
-          class="custom-input"
-          placeholder="Nome da Cidade">
-        </ion-input>
-      </div>
-
+      
       <!-- Mensagens de feedback -->
       <div *ngIf="errorMessage" class="error-message ion-text-center">
         {{ errorMessage }}
