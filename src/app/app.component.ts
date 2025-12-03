@@ -1,8 +1,16 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { Router, RouterLink, RouterLinkActive, NavigationEnd } from '@angular/router';
-import { IonApp, IonSplitPane, IonMenu, IonContent, IonList, IonListHeader, IonNote, IonMenuToggle, IonItem, IonIcon, IonLabel, IonRouterOutlet, IonRouterLink } from '@ionic/angular/standalone';
+import {
+  IonApp, IonSplitPane, IonMenu, IonContent, IonList, IonListHeader, IonNote,
+  IonMenuToggle, IonItem, IonIcon, IonLabel, IonRouterOutlet, IonRouterLink
+} from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
-import { bookOutline, bookSharp, searchOutline, searchSharp, settingsOutline, settingsSharp, addOutline, addSharp, mailOutline, mailSharp, paperPlaneOutline, paperPlaneSharp, heartOutline, heartSharp, archiveOutline, archiveSharp, trashOutline, trashSharp, warningOutline, warningSharp, bookmarkOutline, bookmarkSharp, book } from 'ionicons/icons';
+import {
+  bookOutline, bookSharp, searchOutline, searchSharp, settingsOutline, settingsSharp,
+  addOutline, addSharp, mailOutline, mailSharp, paperPlaneOutline, paperPlaneSharp,
+  heartOutline, heartSharp, archiveOutline, archiveSharp, trashOutline, trashSharp,
+  warningOutline, warningSharp, bookmarkOutline, bookmarkSharp
+} from 'ionicons/icons';
 import { Observable } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
 import { AsyncPipe, Location, CommonModule } from '@angular/common';
@@ -54,6 +62,9 @@ export class AppComponent implements OnInit {
 
   public hideMenu$: Observable<boolean>;
 
+  // 🔥 MENU ESCOLHIDO BASEADO NA TELA
+  public activeMenu$: Observable<'passenger' | 'driver' | null>;
+
   private authService = inject(AuthService);
 
   constructor(
@@ -76,7 +87,7 @@ export class AppComponent implements OnInit {
       bookmarkOutline, bookmarkSharp
     });
 
-    // Botão físico voltar (Android)
+    // Botão físico voltar
     this.platform.backButton.subscribeWithPriority(10, () => {
       this.location.back();
     });
@@ -101,12 +112,37 @@ export class AppComponent implements OnInit {
       })
     );
 
-    // Tipo de Usuário (passenger / driver)
-    this.userRole$ = new Observable(sub => sub.next('driver')); // Simulação temporária
-    /*Correto seria:
-    this.userRole$ = this.authService.user$.pipe(
-      map(user => user?.role ?? null)
-  );*/
+    // Tipo de usuário
+    this.userRole$ = new Observable(sub => sub.next('driver')); // SIMULAÇÃO
+
+    // 🔥 ESCOLHER MENU BASEADO NA ROTA ATUAL
+    this.activeMenu$ = this.router.events.pipe(
+      filter((event): event is NavigationEnd => event instanceof NavigationEnd),
+      map((event: NavigationEnd) => {
+
+        const url = event.urlAfterRedirects;
+
+        // TELA → MENU DO PASSAGEIRO
+        if (
+          url.startsWith('/travel-list') ||
+          url.startsWith('/settings-passenger')
+        ) {
+          return 'passenger';
+        }
+
+        // TELA → MENU DO CONDUTOR
+        if (
+          url.startsWith('/agenda') ||
+          url.startsWith('/register-travel') ||
+          url.startsWith('/settings-driver')
+        ) {
+          return 'driver';
+        }
+
+        // Telas sem menu
+        return null;
+      })
+    );
   }
 
   ngOnInit(): void { }

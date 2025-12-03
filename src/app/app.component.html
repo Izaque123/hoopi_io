@@ -4,47 +4,58 @@
       <ion-content>
 
         <ion-list id="inbox-list">
+
           @if (userName$ | async; as userName) {
-          <ion-list-header>Bem-vindo(a)!</ion-list-header>
-
-          <ion-note>{{ userName }}</ion-note>
+            <ion-list-header>Bem-vindo(a)!</ion-list-header>
+            <ion-note>{{ userName }}</ion-note>
           } @else {
-          <ion-list-header>App</ion-list-header>
-          <ion-note>Faça login</ion-note>
+            <ion-list-header>App</ion-list-header>
+            <ion-note>Faça login</ion-note>
           }
 
+          <!-- 🔥 MENU BASEADO NA TELA ATUAL -->
 
-          <!-- MENU PARA PASSAGEIRO -->
-          @if ((userRole$ | async) === 'passenger') {
-          @for (p of passengerMenu; track p) {
-          <ion-menu-toggle auto-hide="false">
-            <ion-item routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false"
-              routerLinkActive="selected">
-              <ion-icon aria-hidden="true" slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
-              <ion-label>{{ p.title }}</ion-label>
-            </ion-item>
-          </ion-menu-toggle>
-          }
-          }
-
-          <!-- MENU PARA CONDUTOR -->
-          @if ((userRole$ | async) === 'driver') {
-          @for (p of driverMenu; track p) {
-          <ion-menu-toggle auto-hide="false">
-            <ion-item routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false"
-              routerLinkActive="selected">
-              <ion-icon aria-hidden="true" slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
-              <ion-label>{{ p.title }}</ion-label>
-            </ion-item>
-          </ion-menu-toggle>
-          }
+          <!-- MENU PASSAGEIRO -->
+          @if ((activeMenu$ | async) === 'passenger') {
+            @for (p of passengerMenu; track p) {
+              <ion-menu-toggle auto-hide="false">
+                <ion-item routerDirection="root"
+                          [routerLink]="[p.url]"
+                          lines="none"
+                          detail="false"
+                          routerLinkActive="selected">
+                  <ion-icon slot="start"
+                            [ios]="p.icon + '-outline'"
+                            [md]="p.icon + '-sharp'"></ion-icon>
+                  <ion-label>{{ p.title }}</ion-label>
+                </ion-item>
+              </ion-menu-toggle>
+            }
           }
 
+          <!-- MENU CONDUTOR -->
+          @if ((activeMenu$ | async) === 'driver') {
+            @for (p of driverMenu; track p) {
+              <ion-menu-toggle auto-hide="false">
+                <ion-item routerDirection="root"
+                          [routerLink]="[p.url]"
+                          lines="none"
+                          detail="false"
+                          routerLinkActive="selected">
+                  <ion-icon slot="start"
+                            [ios]="p.icon + '-outline'"
+                            [md]="p.icon + '-sharp'"></ion-icon>
+                  <ion-label>{{ p.title }}</ion-label>
+                </ion-item>
+              </ion-menu-toggle>
+            }
+          }
 
         </ion-list>
 
       </ion-content>
     </ion-menu>
+
     <ion-router-outlet id="main-content"></ion-router-outlet>
   </ion-split-pane>
 </ion-app>
