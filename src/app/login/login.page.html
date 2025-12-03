@@ -7,15 +7,28 @@
 
     <h1 class="welcome-message">OLÁ, SEJA BEM-VINDO(A)</h1>
 
-    <form (ngSubmit)="login()">
+    <form (ngSubmit)="login()" #loginForm="ngForm">
       <div class="input-group">
-        <ion-input type="email" [(ngModel)]="email" name="email" placeholder="E-mail" class="custom-input">
+        <ion-input
+        type="text" 
+        [(ngModel)]="credentials.email" 
+        name="email"
+        placeholder="E-mail" 
+        class="custom-input"
+        required>
           <ion-icon slot="start" name="mail-sharp" aria-hidden="true"></ion-icon>
         </ion-input>
       </div>
 
       <div class="input-group">
-        <ion-input type="password" [(ngModel)]="password" name="password" placeholder="Sanha" class="custom-input">
+        <ion-input 
+        type="password" 
+        [(ngModel)]="credentials.password" 
+        name="password" 
+        placeholder="Sanha" 
+        class="custom-input"
+        required
+        >
           <ion-icon slot="start" name="lock-closed" aria-hidden="true"></ion-icon>
           <ion-input-password-toggle slot="end" color="dark"></ion-input-password-toggle>
         </ion-input>
@@ -26,16 +39,12 @@
           <ion-checkbox slot="start" color="primary"></ion-checkbox>
           <ion-label>Lembre-me a senha</ion-label>
         </ion-item>
-        <ion-button fill="clear" color="dark" class="forgot-password-button" (click)="forgotPassword()">
+        <ion-button fill="clear" color="dark" class="forgot-password-button">
           Esqueci a senha
         </ion-button>
       </div>
 
-      @if (errorMessage) {
-        <p class="error-message ion-text-center">{{ errorMessage }}</p>
-      }
-
-      <ion-button expand="block" type="submit" class="login-button">
+      <ion-button expand="block" type="submit" shape="round" class="login-button" [disabled]="loginForm.invalid">
         Entre
       </ion-button>
       <div class="register-row">
