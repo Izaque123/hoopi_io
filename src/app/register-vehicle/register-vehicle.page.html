@@ -1,0 +1,58 @@
+<ion-content class="ion-padding" [fullscreen]="true">
+  <div class="register-container">
+    <div class="header-section">
+      <img src="../../assets/images/hoopi_logo.png" alt="Hoopi Logo" class="hoopi-logo">
+    </div>
+
+    <h1 class="welcome-message">Cadastre seu Veículo.</h1>
+
+    <form (ngSubmit)="register()" class="form">
+
+      <div class="input-group">
+        <ion-input type="text" [(ngModel)]="marca" name="marca" placeholder="Marca do Veículo" class="custom-input">
+        </ion-input>
+      </div>
+
+      <div class="input-group">
+        <ion-input type="text" [(ngModel)]="modelo" name="modelo" placeholder="Modelo do Veículo" class="custom-input">
+        </ion-input>
+      </div>
+
+      <div class="input-group">
+        <ion-input type="number" [(ngModel)]="ano" name="ano" placeholder="Ano" class="custom-input">
+        </ion-input>
+      </div>
+
+      <div class="input-group">
+        <ion-input type="text" [(ngModel)]="placa" name="placa" placeholder="Placa" class="custom-input">
+        </ion-input>
+      </div>
+
+      <div class="input-group">
+        <ion-input type="text" [(ngModel)]="cor" name="cor" placeholder="Cor do Veículo" class="custom-input">
+        </ion-input>
+      </div>
+
+      <div class="input-group">
+        <ion-input type="number" [(ngModel)]="renavam" name="renavam" placeholder="RENAVAM" class="custom-input">
+        </ion-input>
+      </div>
+
+    
+
+      <!-- Mensagens de erro -->
+      <div *ngIf="errorMessage" class="error-message ion-text-center">{{ errorMessage }}</div>
+      <div *ngIf="successMessage" class="success-message ion-text-center">{{ successMessage }}</div>
+
+       <div class="div-buttons">
+        <ion-button expand="block"  class="back-button" (click)="goBack()">
+          <ion-icon slot="start" name="arrow-back-sharp" aria-hidden="true"></ion-icon> Voltar
+        </ion-button>
+        <ion-button expand="block" class="register-button" type="submit">
+          Cadastrar
+        </ion-button>
+      </div>
+
+    </form>
+  </div>
+</ion-content>

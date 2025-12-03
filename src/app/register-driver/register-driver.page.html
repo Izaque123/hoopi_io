@@ -1,0 +1,80 @@
+<ion-content class="ion-padding" [fullscreen]="true">
+  <div class="register-container">
+    <div class="header-section">
+      <img src="../../assets/images/hoopi_logo.png" alt="Hoopi Logo" class="hoopi-logo">
+    </div>
+
+    <h1 class="welcome-message">Cadastro de Condutor.</h1>
+
+    <form (ngSubmit)="registerVehicle()">
+
+      <div class="input-group">
+        <ion-input type="text" [(ngModel)]="fullName" name="fullName" placeholder="Nome Completo" class="custom-input">
+          <ion-icon slot="start" name="person-sharp" aria-hidden="true"></ion-icon>
+        </ion-input>
+      </div>
+
+      <div class="input-group">
+        <ion-input type="text" [(ngModel)]="cpf" name="cpf" placeholder="CPF" class="custom-input">
+          <ion-icon slot="start" name="document-text-sharp" aria-hidden="true"></ion-icon>
+        </ion-input>
+      </div>
+
+      <div class="input-group">
+        <ion-input type="text" [(ngModel)]="cnh" name="cnh" placeholder="CNH" class="custom-input">
+          <ion-icon slot="start" name="card-sharp" aria-hidden="true"></ion-icon>
+        </ion-input>
+      </div>
+
+      <div class="input-group">
+        <ion-input type="email" [(ngModel)]="email" name="email" placeholder="E-mail" class="custom-input">
+          <ion-icon slot="start" name="mail-sharp" aria-hidden="true"></ion-icon>
+        </ion-input>
+      </div>
+
+      <div class="input-group">
+        <ion-select [(ngModel)]="gender" name="gender" placeholder="Selecione o gênero" class="custom-input">
+          <ion-select-option value="male">Masculino</ion-select-option>
+          <ion-select-option value="female">Feminino</ion-select-option>
+          <ion-select-option value="other">Prefiro não informar</ion-select-option>
+        </ion-select>
+      </div>
+
+      <div class="input-group">
+        <ion-input type="tel" [(ngModel)]="phone" name="phone" placeholder="Telefone" class="custom-input">
+          <ion-icon slot="start" name="call-sharp" aria-hidden="true"></ion-icon>
+        </ion-input>
+      </div>
+
+      <div class="input-group">
+        <ion-input type="password" [(ngModel)]="password" name="password" placeholder="Senha" class="custom-input">
+          <ion-icon slot="start" name="lock-closed" aria-hidden="true"></ion-icon>
+          <ion-input-password-toggle slot="end" color="dark"></ion-input-password-toggle>
+        </ion-input>
+      </div>
+
+      <div class="input-group">
+        <ion-input type="password" [(ngModel)]="confirmPassword" name="confirmPassword" placeholder="Confirme a Senha" class="custom-input">
+          <ion-icon slot="start" name="lock-closed" aria-hidden="true"></ion-icon>
+          <ion-input-password-toggle slot="end" color="dark"></ion-input-password-toggle>
+        </ion-input>
+      </div>
+
+      <!-- Mensagens de erro -->
+      <div *ngIf="errorMessage" class="error-message ion-text-center">{{ errorMessage }}</div>
+      <div *ngIf="successMessage" class="success-message ion-text-center">{{ successMessage }}</div>
+
+      <ion-button expand="block" type="submit" class="register-button" (click)="registerVehicle()">
+        Avançar
+      </ion-button>
+
+      <div class="login-row">
+        <p class="login-text">Já possui uma conta?</p>
+        <ion-button fill="clear" color="dark" class="login-button"(click)="goToLogin()" >
+          Entrar
+        </ion-button>
+      </div>
+
+    </form>
+  </div>
+</ion-content>

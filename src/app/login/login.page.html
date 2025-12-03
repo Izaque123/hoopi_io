@@ -5,7 +5,7 @@
       <div class="car-illustration"></div>
     </div>
 
-    <h1 class="welcome-message">OLÁ CONDUTOR!</h1>
+    <h1 class="welcome-message">OLÁ, SEJA BEM-VINDO(A)</h1>
 
     <form (ngSubmit)="login()" #loginForm="ngForm">
       <div class="input-group">
@@ -47,6 +47,12 @@
       <ion-button expand="block" type="submit" shape="round" class="login-button" [disabled]="loginForm.invalid">
         Entre
       </ion-button>
+      <div class="register-row">
+        <p class="register-text">Não possui uma conta?</p>
+        <ion-button fill="clear" color="dark" class="register-button" (click)="choseRole()">
+          Cadastre-se
+        </ion-button>
+      </div>
     </form>
   </div>
 </ion-content>

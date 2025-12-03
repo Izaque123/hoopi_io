@@ -1,0 +1,108 @@
+:root {
+  --hoopi-green-light: #91DE85; 
+  --hoopi-green-dark: #378b31; 
+  --hoopi-text-dark: #333333;
+  --hoopi-input-bg: #e0f2d9; 
+}
+
+ion-content {
+  --background: #91DE85;
+  --padding-top: 0;
+  --padding-bottom: 0;
+  --padding-start: 0;
+  --padding-end: 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.register-container { /* Mantido o nome para aproveitar o CSS do login */
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  margin-top: 60px;
+  margin-bottom: 30px;
+}
+
+.header-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.hoopi-logo {
+  width: 180px;
+  margin-bottom: 20px;
+}
+
+.welcome-message {
+  font-family: 'Arial', sans-serif; 
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: var(--hoopi-text-dark);
+  margin-top: 0; 
+  margin-bottom: 10px;
+  text-align: center;
+  width: 100%;
+}
+
+.input-group {
+  width: 100%;
+  margin-bottom: 25px;
+}
+
+.custom-input {
+  --background: #ffffff;
+  --padding-start: 15px;
+  --padding-end: 15px;
+  --padding-top: 15px;
+  --padding-bottom: 15px;
+  --border-radius: 25px;
+  --border-color: transparent;
+  color: #333333;
+  font-size: 1rem;
+  height: 10px;
+  margin-top: 10px;
+}
+
+.form {
+    width: 100%;
+}
+
+.register-button, .back-button {
+  --background: #2bab22;
+  --color: #ffffff;
+}
+
+.error-message {
+  color: var(--ion-color-danger, #eb445a);
+  margin-top: 15px;
+  margin-bottom: 15px;
+  font-size: 1em;
+  width: 100%;
+  text-align: center;
+}
+
+.success-message {
+  color: #2bab22;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  font-size: 1em;
+  width: 100%;
+  text-align: center;
+}
+
+.div-buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  gap: 10px;
+}

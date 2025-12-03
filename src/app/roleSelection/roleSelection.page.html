@@ -1,0 +1,21 @@
+<ion-content class="ion-padding" [fullscreen]="true">
+  <div class="roleSelection-container">
+    <h1 class="chose-message">Como você deseja se cadastrar?</h1>
+    <div class="button-container">
+      <ion-button expand="block" type="submit" class="chose-button" (click)="goToDriverRegister()">
+        Condutor
+      </ion-button>
+      <ion-button class="chose-button" expand="block" type="submit" (click)="goToPassengerRegister()">
+        Passageiro  
+      </ion-button>
+    </div>
+    <img src="../../assets/images/roleSelection.png" alt="Img RoleSelection" class="roleSelection-img">
+    <div class="login-row">
+      <p>Já possui uma conta?</p>
+      <ion-button fill="clear" class="login-button" (click)="goToLogin()">
+        Faça Login
+      </ion-button>
+    </div>
+
+  </div>
+</ion-content>

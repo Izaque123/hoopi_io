@@ -7,7 +7,6 @@
 
 ion-content {
   --background: #91DE85;
-  
   --padding-top: 0;
   --padding-bottom: 0;
   --padding-start: 0;
@@ -20,14 +19,14 @@ ion-content {
   font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
-.login-container {
+.register-container { /* Mantido o nome para aproveitar o CSS do login */
   width: 100%;
   max-width: 500px;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 20px;
-  margin-top: 90px;
+  margin-top: 60px;
 }
 
 .header-section {
@@ -35,21 +34,12 @@ ion-content {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .hoopi-logo {
   width: 180px;
   margin-bottom: 20px;
-}
-
-.car-illustration {
-  width: 100%;
-  height: 200px;
-  background-image: url('../../assets/images/login_background.png');
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
 }
 
 .welcome-message {
@@ -58,7 +48,7 @@ ion-content {
   font-weight: bold;
   color: var(--hoopi-text-dark);
   margin-top: 0; 
-  margin-bottom: 40px;
+  margin-bottom: 10px;
   text-align: center;
   width: 100%;
 }
@@ -66,15 +56,6 @@ ion-content {
 .input-group {
   width: 100%;
   margin-bottom: 25px;
-}
-
-.input-label {
-  color: #000000;
-  font-weight: bold;
-  margin-bottom: 5px;
-  margin-bottom: 20px;
-  font-size: 1rem;
-  padding-left: 15px;
 }
 
 .custom-input {
@@ -91,52 +72,12 @@ ion-content {
   margin-top: 10px;
 }
 
-.options-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  margin-bottom: 40px;
-  flex-wrap: wrap; 
-}
-
-.remember-me-item {
-  --background: transparent;
-  --inner-padding-end: 0;
-  --padding-start: 0;
-  color: #378b31;
-  font-size: 0.95em;
-  width: 50%;
-  
-  ion-checkbox {
-    --checkbox-background: #ffffff; 
-    --checkbox-background-checked: #378b31; 
-    --border-color: #378b31;
-    --border-radius: 50%;
-    width: 22px;
-    height: 22px;
-    margin-inline-end: 10px;
-  }
-  ion-label {
-    margin: 0;
-    width: 100px;
-    font-size: small
-  }
-}
-
-.forgot-password-button {
-  --color: #378b31;
-  font-size: 0.8em;
-  text-transform: none;
-  height: auto;
-  padding-inline: 0;
-}
-
-.login-button {
+.register-button {
   --background: #2bab22;
   --color: #ffffff;
 }
-.register-row {
+
+.login-row {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -146,7 +87,7 @@ ion-content {
   flex-wrap: wrap; 
 }
 
-.register-button {
+.login-button {
   --color: #378b31;
   font-size: 0.8em;
   text-transform: none;
@@ -154,13 +95,23 @@ ion-content {
   padding-inline: 0;
 }
 
-.register-text {
+.login-text {
   font-family: Arial, sans-serif;
   color: #000000;
   font-size: 0.9em;
 }
+
 .error-message {
   color: var(--ion-color-danger, #eb445a);
+  margin-top: 15px;
+  margin-bottom: 15px;
+  font-size: 1em;
+  width: 100%;
+  text-align: center;
+}
+
+.success-message {
+  color: #2bab22;
   margin-top: 15px;
   margin-bottom: 15px;
   font-size: 1em;

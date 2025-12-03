@@ -50,13 +50,18 @@ export class LoginPage implements OnInit {
     }
   }
 
+    forgotPassword() {
+      console.log('Navegar para a tela de recuperação de senha');
+    }
+    choseRole() {
+      this.router.navigate(['/role-selection']);
+    }
   async login() {
   this.errorMessage = null; 
     const loading = await this.loadingController.create({
       message: 'Entrando...'
     });
     await loading.present();
-
     this.authService.login(this.credentials).subscribe({
       next: () => {
         loading.dismiss();

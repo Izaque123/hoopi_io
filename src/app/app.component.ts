@@ -1,12 +1,12 @@
 import { Component, OnInit, inject } from '@angular/core'; // Adicionar OnInit e inject
 import { Router, RouterLink, RouterLinkActive, NavigationEnd } from '@angular/router';
-import { IonApp, IonSplitPane, IonMenu, IonContent, IonList, IonListHeader, IonNote, IonMenuToggle, IonItem, IonIcon, IonLabel, IonRouterOutlet, IonRouterLink } from '@ionic/angular/standalone';
+import { IonApp, IonSplitPane, IonMenu, IonContent, IonList, IonListHeader, IonNote, IonMenuToggle, IonItem, IonIcon, IonLabel, IonRouterOutlet, IonRouterLink} from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
 import { mailOutline, mailSharp, paperPlaneOutline, paperPlaneSharp, heartOutline, heartSharp, archiveOutline, archiveSharp, trashOutline, trashSharp, warningOutline, warningSharp, bookmarkOutline, bookmarkSharp } from 'ionicons/icons';
 import { Observable } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
-import { AsyncPipe, CommonModule } from '@angular/common'; // Adicionar CommonModule para *ngIf
-// 🚨 Importar o AuthService
+import { AsyncPipe, Location, CommonModule } from '@angular/common';
+import { Platform } from '@ionic/angular'; 
 import { AuthService } from './services/auth.service'; 
 
 @Component({
@@ -28,15 +28,19 @@ export class AppComponent implements OnInit {
   ];
   public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
   public hideMenu$: Observable<boolean>;
-
+  
   private authService = inject(AuthService);
-
-  constructor(private router: Router) {
+  constructor(private router: Router, private location: Location, private platform: Platform  ) {
     addIcons({ mailOutline, mailSharp, paperPlaneOutline, paperPlaneSharp, heartOutline, heartSharp, archiveOutline, archiveSharp, trashOutline, trashSharp, warningOutline, warningSharp, bookmarkOutline, bookmarkSharp });
+
+    this.platform.backButton.subscribeWithPriority(10, () => {
+          this.location.back();
+        });
+
 
     this.hideMenu$ = this.router.events.pipe(
       filter((event): event is NavigationEnd => event instanceof NavigationEnd),
-      map((event: NavigationEnd) => event.urlAfterRedirects.includes('/login'))
+      map((event: NavigationEnd) => event.urlAfterRedirects.includes('/login') || event.urlAfterRedirects.includes('/role-selection' ) || event.urlAfterRedirects.includes('/register-driver') || event.urlAfterRedirects.includes('/register-passenger') || event.urlAfterRedirects.includes('/register-vehicle') ),
     );
 
     this.userName$ = this.authService.user$.pipe(
