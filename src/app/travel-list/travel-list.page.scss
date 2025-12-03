@@ -1,12 +1,4 @@
-// Cores Hoopi (Baseadas nas variáveis do seu projeto)
-:root {
-  --hoopi-green-light: #91DE85; 
-  --hoopi-green-dark: #378b31; 
-  
-  // Mapear a cor primária do Ionic para o verde Hoopi escuro
-  --ion-color-primary: var(--hoopi-green-dark);
-  --ion-color-primary-rgb: 55, 139, 49; 
-}
+/* SCSS SEM VARIÁVEIS, USANDO CORES FIXAS */
 
 ion-header {
   ion-toolbar {
@@ -73,7 +65,8 @@ ion-content {
   padding-bottom: 10px;
   
   ion-button {
-    --color: var(--ion-color-primary); 
+    // Botão "Ver Todos" em #91DE85
+    --color: #91DE85; 
   }
 }
 
@@ -149,14 +142,17 @@ ion-content {
     }
 
     .distance {
+      // Cor de destaque (VERDE CLARO)
       font-size: 0.8rem;
-      color: var(--ion-color-primary); 
+      color: #91DE85; 
       font-weight: 600;
       margin-top: 5px;
     }
 
     .route-button {
-      --background: var(--ion-color-primary);
+      // Cor de fundo do botão (VERDE CLARO)
+      --background: #91DE85;
+      --color: #fff; // Texto escuro para contraste
       --border-radius: 8px;
       height: 30px;
       font-size: 0.75rem;
@@ -216,7 +212,8 @@ ion-content {
     margin-top: 4px;
     ion-icon {
       font-size: 1em;
-      color: var(--ion-color-primary); 
+      // Ícone de localização no verde escuro para legibilidade
+      color: #378b31; 
       margin-right: 2px;
     }
   }
@@ -228,14 +225,17 @@ ion-content {
     gap: 5px;
 
     .distance-list {
+      // Texto da distância (VERDE CLARO)
       font-size: 0.8rem;
-      color: var(--ion-color-primary); 
+      color: #91DE85; 
       font-weight: 600;
       margin: 0;
     }
 
     .route-button-list {
-      --background: var(--ion-color-primary); 
+      // Botão ROTA (VERDE CLARO)
+      --background: #91DE85; 
+      --color: white; // Texto branco
       --border-radius: 6px;
       height: 25px;
       font-size: 0.7rem;
