@@ -1,0 +1,78 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <div class="header-itens"> 
+        <ion-buttons slot="start">
+          <ion-button >
+            <ion-icon slot="icon-only" name="menu-outline"></ion-icon> 
+          </ion-button>
+        </ion-buttons>
+        
+        <ion-title class="title-label">Criar Viagem</ion-title>
+
+        <ion-buttons slot="end">
+            <ion-button>
+                <ion-icon slot="icon-only" name="search-outline"></ion-icon>
+            </ion-button>
+            <ion-button>
+                <ion-icon slot="icon-only" name="notifications-outline"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+      </div>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding" [fullscreen]="true">
+  <div class="register-container">
+    
+    <form (ngSubmit)="register()" class="form-register">
+      <div class="input-group">
+        <ion-label>Origem</ion-label>
+        <ion-input type="text" [(ngModel)]="origem" name="origem" class="custom-input">
+        </ion-input>
+      </div>
+      <div class="input-group">
+        <ion-label>Destino</ion-label>
+        <ion-input type="text" [(ngModel)]="destino" name="destino" class="custom-input">
+        </ion-input>
+      </div>
+      <div class="calendar-div">
+      <ion-label>Selecione a data</ion-label>
+      <div class="mini-calendar-wrapper">
+        <ion-datetime
+          presentation="date"
+          prefer-wheel="false"
+          show-default-buttons="false"
+          [min]="today"
+          [(ngModel)]="travelDate"
+          name="travelDate"
+        ></ion-datetime>
+      </div>
+    </div>
+      <div class="input-group">
+        <ion-label>Horário</ion-label>
+        <ion-input type="time" [(ngModel)]="timeTravel" name="timeTravel"  class="custom-input">
+        </ion-input>
+      </div>
+      <div class="input-group">
+        <ion-label>Preço</ion-label>
+        <ion-input class="custom-input" [(ngModel)]="price" name="price" 
+  type="tel"
+  placeholder="R$ 0,00"
+  (ionInput)="formatCurrency($event)">
+        </ion-input>
+      </div>
+      <div class="input-group">
+        <ion-label>Número de Assentos</ion-label>
+        <ion-input type="number" [(ngModel)]="numSeat" name="numSeat"  class="custom-input">
+        </ion-input>
+      </div>
+      <div *ngIf="errorMessage" class="error-message ion-text-center">{{ errorMessage }}</div>
+      <div *ngIf="successMessage" class="success-message ion-text-center">{{ successMessage }}</div>
+      <ion-button expand="block" type="submit" class="register-button">
+        Criar Viagem
+      </ion-button>
+    </form>
+
+
+
+  </div>
+</ion-content>

@@ -37,8 +37,18 @@ export const routes: Routes = [
     path: 'register-vehicle',
     loadComponent: () => import('./register-vehicle/register-vehicle.page').then( m => m.RegisterVehiclePage)
   },
-  
-  // NOVA ROTA PARA A PÁGINA DE LISTAGEM DE VIAGENS
+  {
+    path: 'register-travel',
+    loadComponent: () => import('./register-travel/register-travel.page').then( m => m.RegisterTravelPage)
+  },
+  {
+    path: 'settings-driver',
+    loadComponent: () => import('./settings-driver/settings-driver.page').then( m => m.SettingsDriverPage)
+  },
+  {
+    path: 'settings-passenger',
+    loadComponent: () => import('./settings-passenger/settings-passenger.page').then( m => m.SettingsPassengerPage)
+  },
   {
     path: 'travel-list',
     loadComponent: () => import('./travel-list/travel-list.page').then(m => m.TravelListPage)
