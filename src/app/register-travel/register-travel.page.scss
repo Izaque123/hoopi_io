@@ -1,0 +1,252 @@
+/* Variáveis globais */
+:root {
+  --hoopi-green-light: #91DE85; 
+  --hoopi-green-dark: #378b31; 
+  --hoopi-text-dark: #333333;
+  --hoopi-input-bg: #e0f2d9; 
+}
+
+/* Estilos gerais do ion-content */
+ion-content {
+  --background: #ffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+/* Estilos do calendário */
+.calendar-div {
+  padding-bottom: 20px;
+  width: 100%;
+}
+
+.mini-calendar-wrapper {
+  max-width: 320px;
+  margin: 0 auto;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(34, 139, 34, 0.15);
+  border: 1px solid #e0f7e9;
+  background: linear-gradient(135deg, #f8fff9 0%, #ffffff 100%);
+}
+
+/* Estilos do ion-datetime */
+ion-datetime {
+  --background: #ffffff;
+  --wheel-item-height: 0;
+  --ion-color-primary: #10b981;
+  --ion-color-primary-rgb: 16, 185, 129;
+  --ion-color-primary-contrast: #ffffff;
+  --ion-color-primary-contrast-rgb: 255, 255, 255;
+  --ion-color-primary-shade: #0ea371;
+  --ion-color-primary-tint: #28c08d;
+  border-radius: 16px;
+  padding: 12px;
+}
+
+/* Header do mês */
+ion-datetime::part(title) {
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-transform: capitalize;
+  color: #1a4731;
+  background: linear-gradient(90deg, #10b981, #059669);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Botões de navegação do mês */
+ion-datetime::part(button) {
+  color: #10b981 !important;
+  font-size: 20px;
+  transition: all 0.2s ease;
+}
+
+/* Cores dos dias */
+ion-datetime::part(calendar-day) {
+  color: #1f2937;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+/* Dias fora do mês */
+ion-datetime::part(calendar-day):not([active]):not([today])[disabled] {
+  opacity: 0.3;
+  color: #9ca3af !important;
+}
+
+/* Dia selecionado */
+ion-datetime::part(calendar-day)[selected] {
+  background: #10b981 !important;
+  background-color: #10b981 !important;
+  color: white !important;
+  border-radius: 50%;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3);
+  transform: scale(1.05);
+}
+
+/* Dia atual */
+ion-datetime::part(calendar-day)[today] {
+  border: 2px solid #10b981 !important;
+  border-color: #10b981 !important;
+  border-radius: 50%;
+  color: green !important;
+  font-weight: 600;
+  background: rgba(16, 185, 129, 0.1);
+}
+
+/* Hover nos dias */
+ion-datetime::part(calendar-day):hover {
+  background: rgba(16, 185, 129, 0.15) !important;
+  border-radius: 50%;
+  transform: scale(1.05);
+}
+
+/* Cabeçalho da semana */
+ion-datetime::part(calendar-weekday) {
+  font-weight: 600;
+  color: #065f46 !important;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #d1fae5;
+}
+
+/* Botão voltar */
+.back-button {
+  width: 19rem;
+  padding-right: 14rem;
+  --background: transparent;
+  --color: var(--hoopi-text-dark);
+  font-size: 0.8rem;
+  --box-shadow: none;
+  font-weight: bold;
+}
+
+/* Container principal */
+.register-container { 
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0px;
+  margin-top: 60px;
+  margin-bottom: 30px;
+}
+
+/* Header section */
+.header-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+/* Logo */
+.hoopi-logo {
+  width: 150px;
+  margin-bottom: 2px;
+}
+
+/* Mensagem de boas-vindas */
+.welcome-message {
+  background-color: #2bab22;
+  font-family: 'Arial', sans-serif; 
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: var(--hoopi-text-dark);
+  margin-top: 0; 
+  margin-bottom: 10px;
+  padding: 5px 35px;
+  width: 100%;
+  border-radius: 8px;
+}
+
+/* Formulário */
+.form-register {
+  width: 10;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Grupos de input */
+.input-group {
+  width: 100%;
+  margin-bottom: 25px;
+}
+
+/* Inputs customizados */
+.custom-input {
+  --padding-start: 15px;
+  --padding-end: 15px;
+  --padding-top: 15px;
+  --padding-bottom: 15px;
+  --border-radius: 25px;
+  color: #333333;
+  font-size: 1rem;
+  height: 10px;
+  margin-top: 5px;
+  width: 100%;
+  padding: 12px 15px;
+  font-size: 1em;
+  background-color: #f6fff8;
+  border: 2px solid #b7e4c7;
+  border-radius: 20px;
+  color: #1b4332;
+  font-weight: 500;
+  transition: 
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    background-color 0.3s ease;
+}
+
+/* Cor da linha de foco dos inputs */
+ion-input {
+  --highlight-color-focused: green;
+}
+
+/* Placeholder dos inputs */
+.custom-input::placeholder {
+  color: #74c69d;
+  opacity: 0.8;
+}
+
+/* Estado focus dos inputs */
+.custom-input:focus {
+  border-color: #52b788;
+  box-shadow: 0 0 8px rgba(82, 183, 136, 0.4);
+  background-color: #e0f2d9;
+}
+
+/* Botão de registro */
+.register-button {
+  --background: #2bab22;
+  --color: #ffffff;
+  width: 100%;
+}
+
+.error-message {
+  color: var(--ion-color-danger, #eb445a);
+  margin-top: 15px;
+  margin-bottom: 15px;
+  font-size: 1em;
+  width: 100%;
+  text-align: center;
+}
+
+.success-message {
+  color: #2bab22;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  font-size: 1em;
+  width: 100%;
+  text-align: center;
+}

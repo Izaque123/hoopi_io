@@ -28,10 +28,15 @@ export const routes: Routes = [
   {
     path: 'register-driver',
     loadComponent: () => import('./register-driver/register-driver.page').then( m => m.RegisterDriverPage)
-  },  {
+  },
+  {
     path: 'register-vehicle',
     loadComponent: () => import('./register-vehicle/register-vehicle.page').then( m => m.RegisterVehiclePage)
+  },  {
+    path: 'register-travel',
+    loadComponent: () => import('./register-travel/register-travel.page').then( m => m.RegisterTravelPage)
   },
+
 
 
 

@@ -35,7 +35,7 @@ export class AppComponent {
 
     this.hideMenu$ = this.router.events.pipe(
       filter((event): event is NavigationEnd => event instanceof NavigationEnd),
-      map((event: NavigationEnd) => event.urlAfterRedirects.includes('/login') || event.urlAfterRedirects.includes('/role-selection' ) || event.urlAfterRedirects.includes('/register-driver') || event.urlAfterRedirects.includes('/register-passenger') || event.urlAfterRedirects.includes('/register-vehicle') ),
+      map((event: NavigationEnd) => event.urlAfterRedirects.includes('/login') || event.urlAfterRedirects.includes('/role-selection' ) || event.urlAfterRedirects.includes('/register-driver') || event.urlAfterRedirects.includes('/register-passenger') || event.urlAfterRedirects.includes('/register-vehicle') || event.urlAfterRedirects.includes('/register-travel') ),
     );
   }
 }
