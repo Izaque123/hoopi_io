@@ -1,11 +1,28 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <div class="header-itens"> 
+        <ion-buttons slot="start">
+          <ion-button >
+            <ion-icon slot="icon-only" name="menu-outline"></ion-icon> 
+          </ion-button>
+        </ion-buttons>
+        
+        <ion-title class="title-label">Criar Viagem</ion-title>
+
+        <ion-buttons slot="end">
+            <ion-button>
+                <ion-icon slot="icon-only" name="search-outline"></ion-icon>
+            </ion-button>
+            <ion-button>
+                <ion-icon slot="icon-only" name="notifications-outline"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+      </div>
+  </ion-toolbar>
+</ion-header>
 <ion-content class="ion-padding" [fullscreen]="true">
   <div class="register-container">
-    <div class="header-section">
-      <img src="../../assets/images/hoopi_logo.png" alt="Hoopi Logo" class="hoopi-logo">
-      <ion-button ion-back-button defaultHref="/login" class="back-button"><ion-icon slot="start"
-          name="arrow-back-sharp" aria-hidden="true"></ion-icon>Voltar</ion-button>
-      <h1 class="welcome-message">Crie uma Viagem</h1>
-    </div>
+    
     <form (ngSubmit)="register()" class="form-register">
       <div class="input-group">
         <ion-label>Origem</ion-label>

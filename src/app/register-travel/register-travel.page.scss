@@ -5,7 +5,57 @@
   --hoopi-text-dark: #333333;
   --hoopi-input-bg: #e0f2d9; 
 }
+ion-header {
+    width: 100%;
+    height: 100px;
+  ion-toolbar {
+    --background: linear-gradient(135deg, #378b31 0%, #2d6e28 100%);
+    --color: white;
+    
+    ion-title {
+      font-weight: 700;
+      font-size: 1.1rem;
+      letter-spacing: -0.3px;
+    }
+    
+    ion-button {
+      --color: white;
+      --padding-start: 6px;
+      --padding-end: 6px;
+      margin: 0 2px;
+    }
+  }
+  
+  ion-toolbar:last-of-type {
+    --background: #91DE85;
+    width: 100%;
+    height: 100px;
+    padding-bottom: 0;
+    ion-segment {
+      --background: transparent;
+      padding: 0 12px;
+      
+      ion-segment-button {
+        --color: rgba(255, 255, 255, 0.8);
+        --color-checked: white;
+        --indicator-color: #378b31;
+        --indicator-height: 3px;
+        min-height: 44px;
+        font-weight: 600;
+        
+        ion-label {
+          font-size: 0.85rem;
+          padding: 0 4px;
+        }
+      }
+    }
+  }
+}
 
+.header-itens{
+    margin-top: 50px;
+    display: flex;
+}
 /* Estilos gerais do ion-content */
 ion-content {
   --background: #ffff;
@@ -13,7 +63,7 @@ ion-content {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  font-family: Georgia, 'Times New Roman', Times, serif;
+ font-family: 'Arial', sans-serif; 
 }
 
 /* Estilos do calendário */
@@ -135,7 +185,7 @@ ion-datetime::part(calendar-weekday) {
   justify-content: center;
   align-items: center;
   padding: 0px;
-  margin-top: 60px;
+  margin-top: 10px;
   margin-bottom: 30px;
 }
 

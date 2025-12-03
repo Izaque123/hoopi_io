@@ -1,16 +1,16 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonContent, IonIcon, IonHeader, IonButton, IonLabel, IonDatetime, IonTitle, IonInput, IonToolbar } from '@ionic/angular/standalone';
+import { IonContent, IonIcon, IonHeader, IonButtons, IonButton, IonLabel, IonDatetime, IonTitle, IonInput, IonToolbar } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
-import { arrowBackSharp, cardSharp, personSharp, documentTextSharp, mail, callSharp, lockClosed } from 'ionicons/icons';
+import { searchOutline, notificationsOutline,menuOutline,  arrowBackSharp, cardSharp, personSharp, documentTextSharp, mail, callSharp, lockClosed } from 'ionicons/icons';
 import { Router } from '@angular/router';
 @Component({
   selector: 'app-register-travel',
   templateUrl: './register-travel.page.html',
   styleUrls: ['./register-travel.page.scss'],
   standalone: true,
-  imports: [IonContent, IonHeader, IonIcon,  IonTitle, IonButton, IonLabel, IonDatetime, IonInput, IonToolbar, CommonModule, FormsModule]
+  imports: [IonContent, IonHeader, IonIcon, IonButtons,  IonTitle, IonButton, IonLabel, IonDatetime, IonInput, IonToolbar, CommonModule, FormsModule]
 })
 export class RegisterTravelPage implements OnInit {
 
@@ -29,7 +29,7 @@ export class RegisterTravelPage implements OnInit {
   private router = inject(Router);
 
   constructor() { 
-     addIcons({ arrowBackSharp, cardSharp, personSharp, documentTextSharp, mail, callSharp, lockClosed });
+     addIcons({ searchOutline, menuOutline, notificationsOutline, arrowBackSharp, cardSharp, personSharp, documentTextSharp, mail, callSharp, lockClosed });
      this.today = new Date().toISOString();
   }
 
