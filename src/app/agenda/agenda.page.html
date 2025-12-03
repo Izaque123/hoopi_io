@@ -1,0 +1,98 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <div class="header-itens"> 
+        <ion-buttons slot="start">
+          <ion-button>
+            <ion-icon slot="icon-only" name="menu-outline"></ion-icon> 
+          </ion-button>
+        </ion-buttons>
+        
+        <ion-title class="title-label">Agenda</ion-title>
+
+        <ion-buttons slot="end">
+            <ion-button>
+                <ion-icon slot="icon-only" name="search-outline"></ion-icon>
+            </ion-button>
+            <ion-button>
+                <ion-icon slot="icon-only" name="notifications-outline"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+      </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="context">
+      <div class="header-section">
+        <img src="../../assets/images/hoopi_logo.png" alt="Hoopi Logo" class="hoopi-logo">
+        <div class="car-illustration"></div>
+      </div>
+      <div class="week-navigation">
+        <ion-button fill="clear" size="small" (click)="prevWeek()" [disabled]="!canGoBack()">
+          <ion-icon slot="icon-only" name="chevron-back-outline"></ion-icon>
+        </ion-button>
+        
+        <div class="current-period">
+          {{ getCurrentPeriod() }}
+        </div>
+        
+        <ion-button fill="clear" size="small" (click)="nextWeek()">
+          <ion-icon slot="icon-only" name="chevron-forward-outline"></ion-icon>
+        </ion-button>
+      </div>
+
+      <div class="date-week-container">
+        <div 
+          *ngFor="let date of weekDates" 
+          class="date-item" 
+          [class.active]="date.isActive"
+          (click)="selectDate(date)"
+        >
+          <span class="month">{{ date.month }}</span>
+          <span class="date-number">{{ date.dayNumber }}</span>
+          <span class="day-name">{{ date.dayName }}</span>
+        </div>
+      </div>
+      
+      <!-- Data atual -->
+      <div class="date-filter-container">
+        <div class="current-date">
+          {{ selectedDate | date:'dd/MM/yyyy' }}
+        </div>
+        <ion-button fill="clear" size="small" class="date-button">
+          <ion-icon slot="start" name="calendar-outline"></ion-icon>
+          Data
+        </ion-button>
+      </div>
+  </div> 
+  <!-- Lista de viagens -->
+  <div class="appointment-list-container">
+    <ion-card *ngFor="let trip of filteredTrips" class="trip-card">
+        <ion-card-header>
+            <div class="header-content">
+                <div class="trip-info">
+                    <div class="route-title">{{ trip.route }}</div>
+                    <div class="trip-meta">
+                        <div class="time">
+                            <ion-icon name="alarm-outline"></ion-icon>
+                            {{ trip.time }}
+                        </div>
+                        <div class="passengers">
+                            <ion-icon name="people-outline"></ion-icon>
+                            {{ trip.passengerCount }}
+                        </div>
+                        <div class="price">{{ trip.price }}</div>
+                    </div>
+                </div>
+                <div class="status-indicator status-{{ trip.status.toLowerCase().replace(' ', '-') }}"></div>
+            </div>
+        </ion-card-header>
+    </ion-card>
+
+    <div *ngIf="filteredTrips.length === 0" class="empty-state">
+        <ion-icon name="car-outline"></ion-icon>
+        <h3>Nenhuma viagem</h3>
+        <p>Não há corridas para esta data</p>
+    </div>
+  </div>
+</ion-content>

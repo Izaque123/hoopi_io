@@ -12,6 +12,10 @@ export const routes: Routes = [
       import('./login/login.page').then((m) => m.LoginPage),
   },
   {
+    path: 'agenda',
+    loadComponent: () => import('./agenda/agenda.page').then(m => m.AgendaPage)
+  },
+  {
     path: 'folder/:id',
     loadComponent: () =>
       import('./folder/folder.page').then((m) => m.FolderPage),
@@ -32,12 +36,10 @@ export const routes: Routes = [
   {
     path: 'register-vehicle',
     loadComponent: () => import('./register-vehicle/register-vehicle.page').then( m => m.RegisterVehiclePage)
-  },  {
+  },
+  {
     path: 'register-travel',
     loadComponent: () => import('./register-travel/register-travel.page').then( m => m.RegisterTravelPage)
   },
-
-
-
 
 ];
