@@ -1,0 +1,85 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar class="location-toolbar">
+    <ion-buttons slot="start">
+      <ion-icon name="location-outline" color="primary"></ion-icon>
+      <ion-label class="location-text">{{ location }}</ion-label>
+    </ion-buttons>
+    <ion-avatar slot="end" class="user-avatar">
+      <img src="assets/images/user-avatar.png" alt="Avatar do Usuário" />
+    </ion-avatar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <div class="header-content ion-padding-start ion-padding-end">
+    <h1 class="main-title">Pequenas Viagens, Vários Momentos!</h1>
+  </div>
+
+  <div class="search-container ion-padding-start ion-padding-end">
+    <ion-searchbar 
+      [(ngModel)]="searchTerm" 
+      placeholder="Procure seu destino" 
+      class="custom-search" 
+      (ionChange)="onSearch()"
+    ></ion-searchbar>
+  </div>
+
+  <div class="section-header ion-padding-start ion-padding-end">
+    <h2 class="section-title">Populares</h2>
+    <ion-button fill="clear" color="primary" size="small" (click)="seeAll('Populares')">
+      Ver Todos
+    </ion-button>
+  </div>
+
+  <div class="horizontal-scroll-container">
+    <div class="horizontal-cards">
+      <ion-card *ngFor="let place of popularPlaces" class="popular-card">
+        <img [src]="place.imageUrl" alt="{{ place.name }}" class="card-image"/>
+        <ion-card-content class="card-content-overlay">
+          <div class="card-info">
+            <h3 class="place-name">{{ place.name }}</h3>
+            <div class="place-meta">
+              <ion-icon name="location-outline"></ion-icon>
+              <ion-label>{{ place.location }}</ion-label>
+            </div>
+            <p class="distance">{{ place.distance }}</p>
+          </div>
+          <ion-button class="route-button" (click)="goToRoute(place.name)">
+            Ver Mais
+          </ion-button>
+          <ion-icon name="heart" class="favorite-icon"></ion-icon>
+        </ion-card-content>
+      </ion-card>
+    </div>
+  </div>
+
+  <div class="section-header ion-padding-start ion-padding-end">
+    <h2 class="section-title">Locais Próximos</h2>
+    <ion-button fill="clear" color="primary" size="small" (click)="seeAll('Locais Próximos')">
+      Ver Todos
+    </ion-button>
+  </div>
+  
+  <ion-list lines="none" class="nearest-places-list ion-padding-start ion-padding-end">
+    <ion-item *ngFor="let place of nearestPlaces" class="list-item">
+      <ion-avatar slot="start" class="place-thumb">
+        <img [src]="place.imageUrl" alt="{{ place.name }}" />
+      </ion-avatar>
+      <ion-label>
+        <h3 class="place-name-list">{{ place.name }}</h3>
+        <p class="place-meta-list">
+          <ion-icon name="location-outline"></ion-icon>
+          {{ place.location }}
+        </p>
+      </ion-label>
+      <div slot="end" class="list-end-info">
+        <p class="distance-list">{{ place.distance }}</p>
+        <ion-button size="small" (click)="goToRoute(place.name)" class="route-button-list">
+          Ver Mais
+        </ion-button>
+      </div>
+    </ion-item>
+  </ion-list>
+  
+</ion-content>

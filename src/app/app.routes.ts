@@ -37,4 +37,10 @@ export const routes: Routes = [
     path: 'register-vehicle',
     loadComponent: () => import('./register-vehicle/register-vehicle.page').then( m => m.RegisterVehiclePage)
   },
+  
+  // NOVA ROTA PARA A PÁGINA DE LISTAGEM DE VIAGENS
+  {
+    path: 'travel-list',
+    loadComponent: () => import('./travel-list/travel-list.page').then(m => m.TravelListPage)
+  },
 ];
