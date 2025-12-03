@@ -1,0 +1,93 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <div class="header-items">
+      <ion-buttons slot="start">
+        <ion-button (click)="goBack()">
+          <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+
+      <ion-title class="title-label">Ajustes de Conta</ion-title>
+
+      <ion-buttons slot="end">
+        <ion-button>
+          <ion-icon slot="icon-only" name="notifications-outline"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" [fullscreen]="true">
+  <div class="settings-container">
+    
+    <!-- Mensagem de boas-vindas -->
+    <div class="welcome-section">
+      <p class="welcome-message">Troque as informações que você, passageiro, achar necessário.</p>
+    </div>
+
+    <!-- Formulário de Informações Pessoais -->
+    <form (ngSubmit)="updateProfile()" class="form-settings">
+      
+      <div class="section-title">Informações Pessoais</div>
+      
+      <div class="input-group">
+        <ion-label>Email</ion-label>
+        <ion-input 
+          type="email" 
+          [(ngModel)]="user.email" 
+          name="email"
+          class="custom-input"
+          placeholder="Novo Email">
+        </ion-input>
+      </div>
+
+      <div class="input-group">
+        <ion-label>Telefone</ion-label>
+        <ion-input 
+          type="tel" 
+          [(ngModel)]="user.phone" 
+          name="phone"
+          class="custom-input"
+          placeholder="Novo Número">
+        </ion-input>
+      </div>
+
+      <div class="input-group">
+        <ion-label>Estado</ion-label>
+        <ion-input 
+          type="text" 
+          [(ngModel)]="user.state" 
+          name="state"
+          class="custom-input"
+          placeholder="Nome do Estado">
+        </ion-input>
+      </div>
+
+      <div class="input-group">
+        <ion-label>Cidade</ion-label>
+        <ion-input 
+          type="text" 
+          [(ngModel)]="user.city" 
+          name="city"
+          class="custom-input"
+          placeholder="Nome da Cidade">
+        </ion-input>
+      </div>
+
+      <!-- Mensagens de feedback -->
+      <div *ngIf="errorMessage" class="error-message ion-text-center">
+        {{ errorMessage }}
+      </div>
+      
+      <div *ngIf="successMessage" class="success-message ion-text-center">
+        {{ successMessage }}
+      </div>
+
+      <!-- Botão de ação -->
+      <ion-button expand="block" type="submit" class="update-button">
+        Atualizar
+      </ion-button>
+    </form>
+  </div>
+</ion-content>

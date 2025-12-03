@@ -40,6 +40,14 @@ export const routes: Routes = [
   {
     path: 'register-travel',
     loadComponent: () => import('./register-travel/register-travel.page').then( m => m.RegisterTravelPage)
+  },  {
+    path: 'settings-driver',
+    loadComponent: () => import('./settings-driver/settings-driver.page').then( m => m.SettingsDriverPage)
   },
+  {
+    path: 'settings-passenger',
+    loadComponent: () => import('./settings-passenger/settings-passenger.page').then( m => m.SettingsPassengerPage)
+  },
+
 
 ];
