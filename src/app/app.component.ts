@@ -49,7 +49,7 @@ export class AppComponent implements OnInit {
 
   // MENU DO PASSAGEIRO
   public passengerMenu = [
-    { title: 'Buscar Viagem', url: '/buscar-viagem', icon: 'search' },
+    { title: 'Buscar Viagem', url: '/travel-list', icon: 'search' },
     { title: 'Ajustes da Conta', url: '/settings-passenger', icon: 'settings' },
   ];
 
